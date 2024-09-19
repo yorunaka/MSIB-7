@@ -2,7 +2,7 @@ import cake from "../img/cake.jpg";
 
 export default function Home() {
   return (
-    <section className="max-w-full mx-auto w-1/2 rounded-xl flex justify-center items-center mt-60 hover:scale-105 transition-transform duration-300 ease-in-out filter blur-2xl delay-75 cursor-default hover:shadow-lg hover:border hover:border-slate-300"
+    <section className="max-w-full mx-auto w-1/2 rounded-xl flex justify-center items-center mt-60 hover:scale-105 transition-transform duration-300 ease-in-out filter blur-2xl delay-75 cursor-default hover:shadow-lg hover:border hover:border-slate-300 hover:shadow-white/35"
     style={{
       backgroundColor: "rgba(255, 255, 255, 0.15)",
       filter: "drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.5))",
