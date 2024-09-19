@@ -13,7 +13,7 @@ export default function Home() {
       <div className="text-balance pr-10">
         <h1 className="text-4xl font-bold">Happy Birthday!</h1>
         <br />
-        <p className="text-2xl">Dear Friend,</p>
+        <p className="text-2xl font-semibold">Dear Friend,</p>
         <br />
         <p>On this special day, I wanted to take a moment to celebrate you and all the wonderful qualities that make you so amazing. Your kindness, humor, and genuine heart bring so much joy to everyone around you.</p>
         <br />
