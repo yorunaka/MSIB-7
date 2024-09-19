@@ -21,7 +21,7 @@ export default function Home() {
           <br />
           <p>With lots of love and warm wishes,</p>
           <br />
-          <p>Your Friend.</p>
+          <p>Vincent Louis Fernando.</p>
       </div>
     </section>
   );
