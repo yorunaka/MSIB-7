@@ -26,6 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <link rel="webicon" href="../img/webicon.png" />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         style={{
