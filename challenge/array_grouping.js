@@ -8,13 +8,14 @@ let items = [
     { name: 'pocari sweat', type: 'drink' },
 ]
 
-let output  = {
+let output  = {}
 
-}
 for (let i = 0; i < items.length; i++) {
-    if (output[items[i].type] === undefined) {
-        output[items[i].type] = []
+    const {name, type} = items[i]
+    if (output[type] === undefined) {
+        output[type] = []
     }
-    output[items[i].type].push(items[i].name)
+    output[type].push(name)
 }
+
 console.log(output)
