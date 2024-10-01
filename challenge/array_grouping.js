@@ -1,4 +1,5 @@
 let items = [
+    //key = name, type
     { name: 'coca cola', type: 'drink' },
     { name: 'nasi padang', type: 'food' },
     { name: 'aqua', type: 'drink' },
