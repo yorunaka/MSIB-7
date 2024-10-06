@@ -1,3 +1,6 @@
+// Vincent Louis Fernando
+// RCJ03S016
+
 // Diberikan function yang menerima 2 parameter, yaitu array of integer (unsorted) dan integer. Function tersebut
 // akan mengembalikan sebuah array di mana di dalam array tersebut mengandung array yang terdiri dari 2 angka
 // yang jika dijumlahkan sama dengan integer

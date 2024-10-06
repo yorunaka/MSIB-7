@@ -1,3 +1,6 @@
+// Vincent Louis Fernando
+// RCJ03S016
+
 // Subarray dapat diartikan sebagai bagian dari sebuah array yang bersambung.
 // Subarray merupakan subset dari array asli yang mencakup elemen-elemen yang berurutan dari sebuah
 // indeks awal hingga indeks akhir.

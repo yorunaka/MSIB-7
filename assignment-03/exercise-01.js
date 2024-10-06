@@ -1,3 +1,6 @@
+// Vincent Louis Fernando
+// RCJ03S016
+
 // Diberikan sebuah function yang menerima satu parameter berupa array yang terdiri dari angka. Function tersebut
 // akan mengembalikan true jika array dari parameter tersebut merupakan deret aritmatika dan false jika sebaliknya.
 // Deret aritmatika adalah sebuah deret dimana perbedaan setiap angka di deret tersebut konsisten. Contoh, 2, 4,
