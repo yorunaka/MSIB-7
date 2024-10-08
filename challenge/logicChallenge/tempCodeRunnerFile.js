@@ -1,0 +1,1 @@
+console.log(giveMeResult('1+1+1-1+1')) // 3
