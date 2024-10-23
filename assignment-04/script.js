@@ -5,100 +5,19 @@ let submit = document.getElementById('submitButton')
 let listContent = document.getElementById('listContent')
 let formName = document.getElementById('formName')
 let formRole = document.getElementById('formRole')
+let userDataArray = []
 
-function generateUserDataCard(name, role, avaiability, age, location, experience, email) {
-    formName.innerHTML = name
-    formRole.innerHTML = role
-    return `
-        <div>
-            ${avaiability}
-            <br/>
-            ${age}
-            <br/>
-            ${location}
-            <br/> 
-            ${experience}
-            <br/>
-            ${email}
-            <br/>
-        </div>
-    `;
-}
+const defaultUserData = {
+    name: 'John Doe',
+    role: 'Web Developer',
+    avaiability: 'Full Time',
+    age: '30',
+    location: 'New York, USA',
+    experience: '5',
+    email: 'johndoe@example.com'
+};
 
-function handleReadUserData() {
-    try {
-        let userDataArray = []
-        const userDataString = localStorage.getItem('userData');
-
-        if (userDataString) {
-            const initialUserData = JSON.parse(userDataString);
-
-            if (Array.isArray(initialUserData)) {
-                userDataArray = initialUserData;
-                let userDataHTML = "";
-
-                initialUserData.forEach((userData) => {
-                    userDataHTML += generateUserDataCard(
-                        userData.name,
-                        userData.role,
-                        userData.avaiability,
-                        userData.age,
-                        userData.location,
-                        userData.experience,
-                        userData.email
-                    );
-                });
-
-                listContent.innerHTML = userDataHTML;  // Update the list content with the stored data
-            }
-        }
-    } catch (error) {
-        console.error('[handleReadUserData]:', error);
-    }
-}
-
-function addDataToLocalStorage(){
-    let userDataArray = []
-
-    let userData = {
-        name : document.getElementById('name').value,
-        role : document.getElementById('role').value,
-        avaiability : document.getElementById('avaiability').value,
-        age : document.getElementById('age').value,
-        location : document.getElementById('location').value,
-        experience : document.getElementById('experience').value,
-        email : document.getElementById('email').value
-    }
-
-    userDataArray.push(userData)
-
-    localStorage.setItem('userData', JSON.stringify(userDataArray))
-    console.log('Data added to local storage')
-}
-
-edit.addEventListener('click', () => {
-    form.classList.remove('hidden')
-    close.classList.remove('hidden')
-})
-
-close.addEventListener('click', () => {
-    form.classList.add('hidden')
-    close.classList.add('hidden')
-})
-
-submit.addEventListener('click', () => {
-    let userData = {
-        name: document.getElementById('name').value,
-        role: document.getElementById('role').value,
-        avaiability: document.getElementById('avaiability').value,
-        age: document.getElementById('age').value,
-        location: document.getElementById('location').value,
-        experience: document.getElementById('experience').value,
-        email: document.getElementById('email').value,
-    }
-
-    console.log(userData)
-
+function displayUserData(userData) {
     formName.innerHTML = userData.name
     formRole.innerHTML = userData.role
 
@@ -116,6 +35,61 @@ submit.addEventListener('click', () => {
             <br/>   
         </div>
     `
-    addDataToLocalStorage()
+}
+
+function handleReadUserData() {
+    try {
+        const userDataString = localStorage.getItem('userData')
+
+        if (!userDataString) {
+            localStorage.setItem('userData', JSON.stringify([defaultUserData]))
+            userDataArray = [defaultUserData]
+        } else {
+            userDataArray = JSON.parse(userDataString)
+        }
+
+        displayUserData(userDataArray[0])
+
+    } catch (error) {
+        console.error('[handleReadUserData]:', error)
+    }
+}
+
+function addUserData() {
+    let userData = {
+        name: document.getElementById('name').value,
+        role: document.getElementById('role').value,
+        avaiability: document.getElementById('avaiability').value,
+        age: document.getElementById('age').value,
+        location: document.getElementById('location').value,
+        experience: document.getElementById('experience').value,
+        email: document.getElementById('email').value,
+    }
+
+    console.log(userData)
+
+    userDataArray = [userData]
+
+    localStorage.setItem('userData', JSON.stringify(userDataArray))
+    console.log('Data added in local storage')
+
+    displayUserData(userData)
+
+}
+
+edit.addEventListener('click', () => {
+    form.classList.remove('hidden')
+    close.classList.remove('hidden')
+})
+
+close.addEventListener('click', () => {
+    form.classList.add('hidden')
+    close.classList.add('hidden')
+})
+
+submit.addEventListener('click', () =>{
+    addUserData()
     form.classList.add('hidden')
 })
+
+window.onload = handleReadUserData
