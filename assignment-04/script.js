@@ -6,14 +6,74 @@ let listContent = document.getElementById('listContent')
 let formName = document.getElementById('formName')
 let formRole = document.getElementById('formRole')
 
-let userData = {
-    name : '',
-    role : '',
-    avaiability : '',
-    age : '',
-    location : '',
-    experience : '',
-    email : ''
+function generateUserDataCard(name, role, avaiability, age, location, experience, email) {
+    formName.innerHTML = name
+    formRole.innerHTML = role
+    return `
+        <div>
+            ${avaiability}
+            <br/>
+            ${age}
+            <br/>
+            ${location}
+            <br/> 
+            ${experience}
+            <br/>
+            ${email}
+            <br/>
+        </div>
+    `;
+}
+
+function handleReadUserData() {
+    try {
+        let userDataArray = []
+        const userDataString = localStorage.getItem('userData');
+
+        if (userDataString) {
+            const initialUserData = JSON.parse(userDataString);
+
+            if (Array.isArray(initialUserData)) {
+                userDataArray = initialUserData;
+                let userDataHTML = "";
+
+                initialUserData.forEach((userData) => {
+                    userDataHTML += generateUserDataCard(
+                        userData.name,
+                        userData.role,
+                        userData.avaiability,
+                        userData.age,
+                        userData.location,
+                        userData.experience,
+                        userData.email
+                    );
+                });
+
+                listContent.innerHTML = userDataHTML;  // Update the list content with the stored data
+            }
+        }
+    } catch (error) {
+        console.error('[handleReadUserData]:', error);
+    }
+}
+
+function addDataToLocalStorage(){
+    let userDataArray = []
+
+    let userData = {
+        name : document.getElementById('name').value,
+        role : document.getElementById('role').value,
+        avaiability : document.getElementById('avaiability').value,
+        age : document.getElementById('age').value,
+        location : document.getElementById('location').value,
+        experience : document.getElementById('experience').value,
+        email : document.getElementById('email').value
+    }
+
+    userDataArray.push(userData)
+
+    localStorage.setItem('userData', JSON.stringify(userDataArray))
+    console.log('Data added to local storage')
 }
 
 edit.addEventListener('click', () => {
@@ -27,13 +87,15 @@ close.addEventListener('click', () => {
 })
 
 submit.addEventListener('click', () => {
-    userData.name = document.getElementById('name').value
-    userData.role = document.getElementById('role').value
-    userData.avaiability = document.getElementById('avaiability').value
-    userData.age = document.getElementById('age').value
-    userData.location = document.getElementById('location').value
-    userData.experience = document.getElementById('experience').value
-    userData.email = document.getElementById('email').value
+    let userData = {
+        name: document.getElementById('name').value,
+        role: document.getElementById('role').value,
+        avaiability: document.getElementById('avaiability').value,
+        age: document.getElementById('age').value,
+        location: document.getElementById('location').value,
+        experience: document.getElementById('experience').value,
+        email: document.getElementById('email').value,
+    }
 
     console.log(userData)
 
@@ -54,6 +116,6 @@ submit.addEventListener('click', () => {
             <br/>   
         </div>
     `
-
+    addDataToLocalStorage()
     form.classList.add('hidden')
 })

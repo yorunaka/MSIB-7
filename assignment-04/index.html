@@ -6,13 +6,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Assignment 4</title>
 </head>
-<body class="bg-slate-200">
+<body class="bg-slate-200" onload="handleReadUserData()">
     <section class="w-full h-screen items-center justify-center flex" id="profileCard">
         <div class="bg-white max-w-4xl w-full h-80 rounded-xl" id="profileCardContainer">
             <div class="flex flex-row justify-evenly items-center self-center h-full">
                 <div class="flex self-center items-center" id="profile-container">
-                    <div class="flex items-center mt-12">
-                        <img width="256" height="256" src="https://img.icons8.com/cotton/128/user-male--v1.png" alt="user-male--v1" class="rounded-full w-32 h-32 mx-auto -mt-16 border-4 border-white">
+                    <div class="grid items-center">
+                        <img width="256" height="256" src="https://img.icons8.com/cotton/128/user-male--v1.png" alt="user-male--v1" class="rounded-full w-32 h-32">
                     </div>
                     <div class="grid pl-8">
                         <h1 class="text-left text-3xl font-bold mt-4" id="formName"></h1>
@@ -25,7 +25,7 @@
                 </div>
                 <div class="grid grid-cols-2 gap-8 place-items-center mt-4" id="infoContainer">
                     <div id="listId">
-                            Avaiability 
+                            Availability 
                         <br/>
                             Usia   
                         <br/>
@@ -37,6 +37,7 @@
                         <br/>     
                     </div>
                     <div id="listContent">
+
                     </div>
                 </div>
             </div>
@@ -63,7 +64,7 @@
                     <input type="text" name="role" id="role" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
                 </div>
                 <div>
-                    <label for="avaiability">Avaiability</label>
+                    <label for="avaiability">Availability</label>
                     <input type="text" name="avaiability" id="avaiability" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
                 </div>
                 <div>
