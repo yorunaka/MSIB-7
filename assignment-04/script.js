@@ -20,6 +20,7 @@ const defaultUserData = {
 function displayUserData(userData) {
     formName.innerHTML = userData.name
     formRole.innerHTML = userData.role
+    listContent.innerHTML = ''
 
     listContent.innerHTML += `
         <div>
@@ -41,11 +42,11 @@ function handleReadUserData() {
     try {
         const userDataString = localStorage.getItem('userData')
 
-        if (!userDataString) {
+        if (userDataString) {
+            userDataArray = JSON.parse(userDataString)
+        } else {
             localStorage.setItem('userData', JSON.stringify([defaultUserData]))
             userDataArray = [defaultUserData]
-        } else {
-            userDataArray = JSON.parse(userDataString)
         }
 
         displayUserData(userDataArray[0])
@@ -64,6 +65,10 @@ function addUserData() {
         location: document.getElementById('location').value,
         experience: document.getElementById('experience').value,
         email: document.getElementById('email').value,
+    }
+    if (!userData.name || !userData.role || !userData.avaiability || !userData.age || !userData.location || !userData.experience || !userData.email) {
+        alert('Data tidak lengkap')
+        return
     }
 
     console.log(userData)
