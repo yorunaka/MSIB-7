@@ -4,16 +4,28 @@ import './App.css'
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [currency, setCurrency] = useState([])
 
   useEffect(() => {
-    axios.get("https://api.currencyfreaks.com/v2.0/rates/latest"
-      'api-key': 'YOURAPIKEY'
-    )
-  
-    return () => {
-      second
-    }
+    axios.get("https://api.currencyfreaks.com/v2.0/rates/latest",{
+      params: {
+        'apikey': '', //Your API KEY
+        'base': 'USD',
+        'symbols': "CAD,EUR,IDR,JPY,CHF,GBP"
+
+      }
+    }).then(res => {
+      const currencyArray = []
+      for (let currencyCode in res.data.rates){
+        currencyArray.push({
+          code: currencyCode,
+          rates: res.data.rates[currencyCode]
+        })
+      }
+      setCurrency(currencyArray)
+    }).catch(err => {
+      console.log('Error :', err)
+    })
   }, [])
   
 
@@ -32,33 +44,19 @@ function App() {
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>lorem</td>
-                <td>ipsum</td>
-                <td>dolor</td>
-                <td>sit</td>
-              </tr>
-              <tr>
-                <td>lorem</td>
-                <td>ipsum</td>
-                <td>dolor</td>
-                <td>sit</td>
-              </tr>
-              <tr>
-                <td>lorem</td>
-                <td>ipsum</td>
-                <td>dolor</td>
-                <td>sit</td>
-              </tr>
-              <tr>
-                <td>lorem</td>
-                <td>ipsum</td>
-                <td>dolor</td>
-                <td>sit</td>
-              </tr>
+            {currency.map((data, i) => (
+                <tr key={i}>
+                  <td>{data.code}</td>
+                  <td>{(data.rates * 1.05).toFixed(4)}</td>
+                  <td>{(data.rates * 1).toFixed(4)}</td>
+                  <td>{(data.rates * 0.95).toFixed(4)}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
+        <h1>Rates are based from 1 USD</h1>
+        <h1>This app is using API from <a href="https://currencyfreaks.com">https://currencyfreaks.com</a></h1>
         </div>
     </div>
   )
