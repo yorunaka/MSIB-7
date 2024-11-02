@@ -16,10 +16,10 @@ function App() {
       }
     }).then(res => {
       const currencyArray = []
-      for (let currencyCode in res.data.rates){
+      for (let key in res.data.rates){
         currencyArray.push({
-          code: currencyCode,
-          rates: res.data.rates[currencyCode]
+          code: key,
+          rates: res.data.rates[key]
         })
       }
       setCurrency(currencyArray)
