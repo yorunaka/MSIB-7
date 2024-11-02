@@ -23,8 +23,6 @@ function App() {
         })
       }
       setCurrency(currencyArray)
-    }).catch(err => {
-      console.log('Error :', err)
     })
   }, [])
   
