@@ -1,5 +1,6 @@
 // step 1
-import { createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
+import { logger } from 'redux-logger'
 
 // step 2
 const initialState = {
@@ -21,7 +22,7 @@ const doCounter = (state = initialState, action) => {
 }
 
 // step 4 - bikin store
-let store = createStore(doCounter)
+let store = createStore(doCounter, applyMiddleware(logger))
 
 // // step 5 - subscribe
 // store.subscribe(() => { console.log(store.getState()) })
