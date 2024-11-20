@@ -1,101 +1,35 @@
 import './App.css'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+import Body from './components/Body/Body'
 import Navbar from './components/Navbar/Navbar'
 
 function App() {
+  const [movie, setMovie] = useState([])
+
+  // get movie data
+  const fetchData = async (searchTerm) => {
+    try {
+      const res = await axios.get(`http://www.omdbapi.com/?s=${searchTerm}&i=tt3896198&apikey=${import.meta.env.VITE_APIKEY}`)
+      // console.log(res.data.Response)
+      if (res.data.Response == 'True'){
+        console.log(res.data.Search)
+      }
+    } catch (err) {
+      console.log('res : ', err)
+    }
+  }
+
+
+
+  useEffect(() => {
+    fetchData('tomorrow never dies')
+  }, [])
 
   return (
     <div className='h-screen w-full top-0 overflow-x-hidden bg-slate-300'>
       <Navbar />
-
-      {/* movie section */}
-      <div className='p-4'>
-          <div className='text-blue-500 font-semibold text-3xl pt-16 pl-32'>
-            Show Your Favorite Movies
-          </div>
-          {/* movie card */}
-          <div className='grid grid-flow-row grid-cols-5 p-32 gap-8'>
-            <div className='bg-white grid grid-rows-2'>
-              <div id='image' className='row-span-2'>
-                <img src="./src/assets/movieImg1.jpg" alt="" />
-              </div>
-              <div id='title' className='text-center font-semibold text-lg text-white bg-slate-700 p-4'>
-                <h1>Vivy: Fluorite Eyes Song</h1>
-              </div>
-            </div>
-            <div className='bg-white grid grid-rows-2'>
-              <div id='image' className='row-span-2'>
-                <img src="./src/assets/movieImg1.jpg" alt="" />
-              </div>
-              <div id='title' className='text-center font-semibold text-lg text-white bg-slate-700 p-4'>
-                <h1>Vivy: Fluorite Eyes Song</h1>
-              </div>
-            </div>
-            <div className='bg-white grid grid-rows-2'>
-              <div id='image' className='row-span-2'>
-                <img src="./src/assets/movieImg1.jpg" alt="" />
-              </div>
-              <div id='title' className='text-center font-semibold text-lg text-white bg-slate-700 p-4'>
-                <h1>Vivy: Fluorite Eyes Song</h1>
-              </div>
-            </div>
-            <div className='bg-white grid grid-rows-2'>
-              <div id='image' className='row-span-2'>
-                <img src="./src/assets/movieImg1.jpg" alt="" />
-              </div>
-              <div id='title' className='text-center font-semibold text-lg text-white bg-slate-700 p-4'>
-                <h1>Vivy: Fluorite Eyes Song</h1>
-              </div>
-            </div>
-            <div className='bg-white grid grid-rows-2'>
-              <div id='image' className='row-span-2'>
-                <img src="./src/assets/movieImg1.jpg" alt="" />
-              </div>
-              <div id='title' className='text-center font-semibold text-lg text-white bg-slate-700 p-4'>
-                <h1>Vivy: Fluorite Eyes Song</h1>
-              </div>
-            </div>
-            <div className='bg-white grid grid-rows-2'>
-              <div id='image' className='row-span-2'>
-                <img src="./src/assets/movieImg1.jpg" alt="" />
-              </div>
-              <div id='title' className='text-center font-semibold text-lg text-white bg-slate-700 p-4'>
-                <h1>Vivy: Fluorite Eyes Song</h1>
-              </div>
-            </div>
-            <div className='bg-white grid grid-rows-2'>
-              <div id='image' className='row-span-2'>
-                <img src="./src/assets/movieImg1.jpg" alt="" />
-              </div>
-              <div id='title' className='text-center font-semibold text-lg text-white bg-slate-700 p-4'>
-                <h1>Vivy: Fluorite Eyes Song</h1>
-              </div>
-            </div>
-            <div className='bg-white grid grid-rows-2'>
-              <div id='image' className='row-span-2'>
-                <img src="./src/assets/movieImg1.jpg" alt="" />
-              </div>
-              <div id='title' className='text-center font-semibold text-lg text-white bg-slate-700 p-4'>
-                <h1>Vivy: Fluorite Eyes Song</h1>
-              </div>
-            </div>
-            <div className='bg-white grid grid-rows-2'>
-              <div id='image' className='row-span-2'>
-                <img src="./src/assets/movieImg1.jpg" alt="" />
-              </div>
-              <div id='title' className='text-center font-semibold text-lg text-white bg-slate-700 p-4'>
-                <h1>Vivy: Fluorite Eyes Song</h1>
-              </div>
-            </div>
-            <div className='bg-white grid grid-rows-2'>
-              <div id='image' className='row-span-2'>
-                <img src="./src/assets/movieImg1.jpg" alt="" />
-              </div>
-              <div id='title' className='text-center font-semibold text-lg text-white bg-slate-700 p-4'>
-                <h1>Vivy: Fluorite Eyes Song</h1>
-              </div>
-            </div>
-          </div>
-      </div>
+      <Body />
 
     </div>
   )
