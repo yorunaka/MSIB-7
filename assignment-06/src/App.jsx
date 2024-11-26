@@ -1,20 +1,37 @@
-import './App.css'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import Body from './components/Body/Body'
 import Navbar from './components/Navbar/Navbar'
 
-function App() {
-  const [movie, setMovie] = useState([])
 
+function App() {
+  const [movies, setMovies] = useState('')
+  const dispatch = useDispatch()
+  
+  const handleSubmit = async (query) => {
+      setMovies(query)
+      fetchData(movies)
+  }
   // get movie data
-  const fetchData = async (searchTerm) => {
+  const fetchData = async (keyword = '') => {
     try {
-      const res = await axios.get(`http://www.omdbapi.com/?s=${searchTerm}&i=tt3896198&apikey=${import.meta.env.VITE_APIKEY}`)
-      // console.log(res.data.Response)
-      if (res.data.Response == 'True'){
-        console.log(res.data.Search)
+      const apiURL = `http://www.omdbapi.com/?s=${keyword}=&i=tt3896198&apikey=${import.meta.env.VITE_APIKEY}`
+      const res = await axios.get(apiURL)
+      if (res.status == 200){
+        const result = res.data.Search?.map((movie) => ({
+          id: movie.imdbID,
+          title: movie.Title,
+          year: movie.Year,
+          poster: movie.Poster,
+        }));
+        dispatch({ type: 'INSERT_MOVIES', movies: result })
       }
+
+      if(!res.data.Search){
+        throw new Error('Movies not found.')
+      }
+
     } catch (err) {
       console.log('res : ', err)
     }
@@ -23,13 +40,16 @@ function App() {
 
 
   useEffect(() => {
-    fetchData('tomorrow never dies')
+    fetchData('Action')
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
     <div className='h-screen w-full top-0 overflow-x-hidden bg-slate-300'>
-      <Navbar />
-      <Body />
+      <Navbar 
+      onSearchSubmit={handleSubmit}/>
+      <Body 
+      movies={movies}/>
 
     </div>
   )

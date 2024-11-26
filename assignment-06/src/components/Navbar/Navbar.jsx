@@ -1,6 +1,20 @@
-import React from 'react'
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
+import React, { useState, useEffect } from 'react'
 
-function Navbar() {
+function Navbar(props) {
+  const [searchValue, setSearchValue] = useState('')
+
+  const handleInputChange = (value) => {
+    setSearchValue(value)
+  }
+
+  const submitSearchFunction = (e) => {
+    e.preventDefault()
+    props.onSearchSubmit(searchValue)
+    setSearchValue('')
+  }
+
   return (
     <div className='max-w-full flex bg-orange-700 justify-around m-0 p-4'>
       <div className='text-2xl font-semibold text-white'>
@@ -9,11 +23,16 @@ function Navbar() {
       <div className='grid grid-flow-row grid-cols-4 w-96 items-stretch'>
         <div className='col-span-3'>
           <input
-            type="search"
+            type="text"
+            onChange={(e) => {
+              handleInputChange(e.target.value)
+            }}
+            value={searchValue}
             placeholder='Search by title'
             className='relative m-0 -mr-0.5 block w-full rounded-l border border-solid border-neutral-300 bg-white bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-slate-700 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-700 focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-600 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary' />
         </div>
-        <button>
+        <button
+        onClick={submitSearchFunction}>
           <div className='bg-blue-600 flex justify-center items-center h-full w-full rounded-r hover:bg-blue-700'>
             <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 50 50"
               className=''>
