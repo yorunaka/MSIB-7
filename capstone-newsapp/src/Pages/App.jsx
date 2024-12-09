@@ -10,10 +10,6 @@ function App() {
     <section className="bg-orange-100/75 min-h-screen top-0">
       <Navbar />
       <Index />
-      {/* body */}
-      {/* navbar */}
-
-      {/* contents */}
 
 
     </section>

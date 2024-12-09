@@ -21,7 +21,7 @@ const Navbar = () => {
             <NavLink
             exact
             activeClassName="navbar__link--active"
-            className="navbar__link"
+            className="navbar__link px-3 py-2 hover:bg-black/10 focus:border-b-2 focus:border-b-yellow-800"
             to="/"
             >
             Indonesia
@@ -29,7 +29,7 @@ const Navbar = () => {
             <NavLink
             exact
             activeClassName="navbar__link--active"
-            className="navbar__link"
+            className="navbar__link px-3 py-2 hover:bg-black/10 focus:border-b-2 focus:border-b-yellow-800"
             to="/Programming"
             >
             Programming
@@ -37,7 +37,7 @@ const Navbar = () => {
             <NavLink
             exact
             activeClassName="navbar__link--active"
-            className="navbar__link"
+            className="navbar__link px-3 py-2 hover:bg-black/10 focus:border-b-2 focus:border-b-yellow-800"
             to="/Covid19"
             >
             COVID-19
@@ -45,7 +45,7 @@ const Navbar = () => {
             <NavLink
             exact
             activeClassName="navbar__link--active"
-            className="navbar__link"
+            className="navbar__link px-3 py-2 hover:bg-black/10 focus:border-b-2 focus:border-b-yellow-800"
             to="/Saved"
             >
             Saved
