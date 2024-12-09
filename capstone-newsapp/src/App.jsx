@@ -19,6 +19,20 @@ function App() {
       </section>
       
       {/* body */}
+      {/* navbar */}
+      <div>
+        <ul className="flex flex-row justify-center gap-10 mt-14">
+          <li><a href="">Indonesia</a></li>
+          <li><a href="">Programming</a></li>
+          <li><a href="">COVID-19</a></li>
+          <li><a href="">Saved</a></li>
+        </ul>
+        <hr />
+      </div>
+      {/* contents */}
+      <div>
+        
+      </div>
 
     </section>
   )
