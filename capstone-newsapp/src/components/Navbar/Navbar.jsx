@@ -19,32 +19,28 @@ const Navbar = () => {
     <div>
         <ul className="flex flex-row justify-center gap-10 mt-14">
             <NavLink
-            exact
-            activeClassName="navbar__link--active"
+            exact='true'
             className="navbar__link px-3 py-2 hover:bg-black/10 focus:border-b-2 focus:border-b-yellow-800"
             to="/"
             >
             Indonesia
             </NavLink>
             <NavLink
-            exact
-            activeClassName="navbar__link--active"
+            exact='true'
             className="navbar__link px-3 py-2 hover:bg-black/10 focus:border-b-2 focus:border-b-yellow-800"
             to="/Programming"
             >
             Programming
             </NavLink>
             <NavLink
-            exact
-            activeClassName="navbar__link--active"
+            exact='true'
             className="navbar__link px-3 py-2 hover:bg-black/10 focus:border-b-2 focus:border-b-yellow-800"
             to="/Covid19"
             >
             COVID-19
             </NavLink>
             <NavLink
-            exact
-            activeClassName="navbar__link--active"
+            exact='true'
             className="navbar__link px-3 py-2 hover:bg-black/10 focus:border-b-2 focus:border-b-yellow-800"
             to="/Saved"
             >
