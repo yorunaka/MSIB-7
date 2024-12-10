@@ -5,11 +5,11 @@ import Covid19 from '../Pages/Covid19';
 import Programming from '../Pages/Programming';
 import Saved from '../Pages/Saved';
 
-const Index = () => (
+const Index = (props) => (
   <Routes>
     <Route path="/" element={<Indonesia />} />
-    <Route path="/Covid19" element={<Covid19 />} />
-    <Route path="/Programming" element={<Programming />} />
+    <Route path="/Covid19" element={<Covid19 getNewsData={props.getNewsData}/>} />
+    <Route path="/Programming" element={<Programming getNewsData={props.getNewsData}/>} />
     <Route path="/Saved" element={<Saved />} />
   </Routes>
 )
