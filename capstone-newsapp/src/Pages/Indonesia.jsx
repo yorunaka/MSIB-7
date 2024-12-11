@@ -2,11 +2,18 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
 
-const Indonesia = () => {
+const Indonesia = (props) => {
   const news = useSelector((state) => state.newsData)
+
+  useEffect(() => {
+    props.getNewsData()
+  },[])
 
   return (
     <div>
+      <div id='title' className='text-center text-3xl pt-6 font-bold'>
+        Indonesia News
+      </div>
         <div className="grid grid-cols-3 p-8">
         {news.map((article, index) => (
           <div className="grid grid-flow-row m-6 gap-2" key={index}>

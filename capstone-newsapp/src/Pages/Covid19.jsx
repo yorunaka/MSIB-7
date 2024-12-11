@@ -11,6 +11,9 @@ const Covid19 = (props) => {
 
   return (
     <div>
+      <div id='title' className='text-center text-3xl pt-6 font-bold'>
+        Covid News
+      </div>
       <div className="grid grid-cols-3 p-8">
         {news.map((article, index) => (
           <div className="grid grid-flow-row m-6 gap-2" key={index}>

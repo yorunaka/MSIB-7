@@ -7,10 +7,11 @@ import Saved from '../Pages/Saved';
 
 const Index = (props) => (
   <Routes>
-    <Route path="/" element={<Indonesia />} />
-    <Route path="/Covid19" element={<Covid19 getNewsData={props.getNewsData}/>} />
-    <Route path="/Programming" element={<Programming getNewsData={props.getNewsData}/>} />
-    <Route path="/Saved" element={<Saved />} />
+    <Route path="/" element={<Indonesia getNewsData={props.getNewsData}/>} />
+    <Route path="/covid" element={<Covid19 getNewsData={props.getNewsData}/>} />
+    <Route path="/programming" element={<Programming getNewsData={props.getNewsData}/>} />
+    <Route path="/search/:query" element={<Programming getNewsData={props.getNewsData}/>} />
+    <Route path="/saved" element={<Saved />} />
   </Routes>
 )
 

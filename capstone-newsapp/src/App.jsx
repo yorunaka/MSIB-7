@@ -5,16 +5,17 @@ import Index from "./Router/Index"
 import { useDispatch } from 'react-redux'
 
 function App() {
-  const [newsQueue, setNewsQueue] = useState('0')
+  const [newsValue, setNewsValue] = useState('0')
   const dispatch = useDispatch()
 
-  const handleNewsSubmit = async (query) => {
-    setNewsQueue(query)
-    getNewsData(newsQueue)
+  const handleNewsQuery = async (query) => {
+    // console.log(query)
+    setNewsValue(query)
+    getNewsData(newsValue)
   }
 
   const getNewsData = (newsCategory = 'indonesia') => {
-    axios.get(`https://newsapi.org/v2/everything?q=${newsCategory}&from=2024-11-10&sortBy=publishedAt&apiKey=${import.meta.env.VITE_APIKEY}`)
+    axios.get(`https://newsapi.org/v2/everything?q=${newsCategory}&apiKey=${import.meta.env.VITE_APIKEY}`)
     .then(response => {
       const res = response.data.articles.filter(
         (article) =>
@@ -34,7 +35,7 @@ function App() {
 
   return (
     <section className="bg-orange-100/75 min-h-screen top-0">
-      <Navbar submitNews={handleNewsSubmit}/>
+      <Navbar newsValue={handleNewsQuery}/>
       <Index getNewsData={getNewsData}/>
     </section>
   )
