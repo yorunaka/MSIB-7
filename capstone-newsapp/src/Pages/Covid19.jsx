@@ -5,6 +5,10 @@ import { useSelector } from 'react-redux'
 const Covid19 = (props) => {
   const news = useSelector((state) => state.newsData)
 
+  const cleanDescription = (description) => {
+    return description ? description.replace(/\[\+\d+ chars\]/, '').trim() : 'No description available'
+  }
+
   useEffect(() => {
     props.getNewsData('covid')
   }, [])
@@ -27,7 +31,7 @@ const Covid19 = (props) => {
               {article.author}
             </div>
             <div className="text-md line-clamp-3" id="desc">
-              {article.content || "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto officiis voluptatibus distinctio dolorum. Fugiat, nemo cumque dolorem facere a consectetur. Eius quam unde similique velit praesentium alias deserunt a adipisci amet rerum!"}
+              {cleanDescription(article.content )|| "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iusto officiis voluptatibus distinctio dolorum. Fugiat, nemo cumque dolorem facere a consectetur. Eius quam unde similique velit praesentium alias deserunt a adipisci amet rerum!"}
             </div>
             <div className="flex flex-row gap-4">
                 <a href={article.url}>
