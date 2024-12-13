@@ -55,6 +55,7 @@ function App() {
         </div>
         <h1>Rates are based from 1 USD</h1>
         <h1>This app is using API from <a href="https://currencyfreaks.com">https://currencyfreaks.com</a></h1>
+        <h1>Created by Vincent Louis Fernando</h1>
         </div>
     </div>
   )
