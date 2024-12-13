@@ -7,7 +7,7 @@ function App() {
   const [currency, setCurrency] = useState([])
 
   useEffect(() => {
-    axios.get("https://api.currencyfreaks.com/v2.0/rates/latest",{
+    axios.get("https://api.currencyfreaks.com/v2.0/rates/latest?",{
       params: {
         'apikey': `${import.meta.env.VITE_APIKEY}`, //Your API KEY
         'base': 'USD',
