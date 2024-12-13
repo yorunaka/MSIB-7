@@ -7,7 +7,7 @@ function App() {
   const [currency, setCurrency] = useState([])
 
   useEffect(() => {
-    axios.get(`https://api.currencyfreaks.com/v2.0/rates/latest?${import.meta.env.VITE_APIKEY}`,{
+    axios.get(`https://api.currencyfreaks.com/v2.0/rates/latest?${import.process.env.VITE_APIKEY}`,{
       params: {
         'base': 'USD',
         'symbols': "CAD,EUR,IDR,JPY,CHF,GBP"
