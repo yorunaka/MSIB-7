@@ -7,13 +7,8 @@ function App() {
   const [currency, setCurrency] = useState([])
 
   useEffect(() => {
-    axios.get(`https://api.currencyfreaks.com/v2.0/rates/latest?apikey=${import.meta.env.VITE_APIKEY}`,{
-      params: {
-        'base': 'USD',
-        'symbols': "CAD,EUR,IDR,JPY,CHF,GBP"
-
-      }
-    }).then(res => {
+    axios.get(`https://api.currencyfreaks.com/v2.0/rates/latest?apikey=${import.meta.env.VITE_APIKEY}&base=USD&symbols=CAD,EUR,IDR,JPY,CHF,GBP`)
+    .then(res => {
       const currencyArray = []
       for (let key in res.data.rates){
         currencyArray.push({
