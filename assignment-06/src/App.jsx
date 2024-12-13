@@ -11,10 +11,10 @@ function App() {
   
   const handleSubmit = async (query) => {
       setMovies(query)
-      fetchData(movies)
+      fetchData(query)
   }
   // get movie data
-  const fetchData = async (keyword = '') => {
+  const fetchData = async (keyword = 'action') => {
     try {
       const apiURL = `https://www.omdbapi.com/?s=${keyword}&apikey=${import.meta.env.VITE_APIKEY}`
       const res = await axios.get(apiURL)
@@ -40,7 +40,7 @@ function App() {
 
 
   useEffect(() => {
-    fetchData('Action')
+    fetchData()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
