@@ -16,7 +16,7 @@ function App() {
   // get movie data
   const fetchData = async (keyword = '') => {
     try {
-      const apiURL = `http://www.omdbapi.com/?s=${keyword}=&i=tt3896198&apikey=${import.meta.env.VITE_APIKEY}`
+      const apiURL = `https://www.omdbapi.com/?s=${keyword}=&i=tt3896198&apikey=${import.meta.env.VITE_APIKEY}`
       const res = await axios.get(apiURL)
       if (res.status == 200){
         const result = res.data.Search?.map((movie) => ({
