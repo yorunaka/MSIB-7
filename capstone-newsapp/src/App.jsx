@@ -12,9 +12,11 @@ function App() {
 
   const handleNewsQuery = async (query) => {
     // console.log(query)
-    setNewsValue(query)
-    setSearchValue(query)
-    getNewsData(newsValue)
+    if (query != null){
+      setNewsValue(query)
+      setSearchValue(query)
+      getNewsData(newsValue)
+    }
   }
 
   const getNewsData = (newsCategory = 'indonesia') => {

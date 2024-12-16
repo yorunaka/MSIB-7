@@ -1,9 +1,11 @@
 import React from 'react'
+import useLocalStorage from '../hooks/useLocalStorage'
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
 
 const Indonesia = (props) => {
   const news = useSelector((state) => state.newsData)
+  const { handleDuplicate } = useLocalStorage('savedArticles', []);
 
   const cleanDescription = (description) => {
     return description ? description.replace(/\[\+\d+ chars\]/, '').trim() : 'No description available'
@@ -38,12 +40,11 @@ const Indonesia = (props) => {
                   <div className="px-3 py-2 bg-orange-400/70 rounded-lg hover:bg-orange-400/50 text-center place-items-center justify-center items-center">
                   Read More...
                   </div>
-                </a>
-              <a href="">                
-                <div className="px-3 py-2 bg-blue-400/70 rounded-lg hover:bg-blue-400/50">
+                </a>                
+                <button className="px-3 py-2 bg-blue-400/70 rounded-lg hover:bg-blue-400/50"
+                onClick={() => handleDuplicate(article)}>
                 Save
-              </div>
-                </a>
+              </button>
             </div>
           </div>
         ))}
