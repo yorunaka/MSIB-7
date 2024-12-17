@@ -17,6 +17,7 @@ const Saved = () => {
   const handleDeleteNews = (index) => {
     const updateNews = storedValue.filter((_, i) => i !== index)
     saveItems(updateNews)
+    alert('Berita sudah dihapus.')
   }
 
   return (

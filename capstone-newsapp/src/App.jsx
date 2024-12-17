@@ -22,6 +22,7 @@ function App() {
   const getNewsData = (newsCategory = 'indonesia') => {
     axios.get(`https://newsapi.org/v2/everything?q=${newsCategory}&apiKey=${import.meta.env.VITE_APIKEY}`)
     .then(response => {
+      // throw new Error('Simulated API Failure')
       const res = response.data.articles.filter(
         (article) =>
           article.title !== "[Removed]" &&
@@ -39,7 +40,7 @@ function App() {
   },[])
 
   return (
-    <section className="bg-orange-100/75 min-h-screen top-0">
+    <section className="bg-orange-100 min-h-screen top-0" data-theme='light'>
       <Navbar newsValue={handleNewsQuery}/>
       <Index getNewsData={getNewsData} searchValue={searchValue}/>
     </section>

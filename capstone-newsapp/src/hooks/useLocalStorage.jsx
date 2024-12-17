@@ -1,5 +1,4 @@
-import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 const useLocalStorage = (key, initialValue) => {
     
@@ -29,10 +28,12 @@ const useLocalStorage = (key, initialValue) => {
         const isDuplicate = storedValue.some((storedArticle) => storedArticle.title == article.title)
         if(isDuplicate){
             // console.log('berita yang sama sudah tersimpan')
+            alert('Berita yang sama sudah tersimpan.')
             return false
         } else {
             // console.log('berita tersimpan')
             saveItems([...storedValue, article])
+            alert('Berita tersimpan.')
             return true
         }
     }

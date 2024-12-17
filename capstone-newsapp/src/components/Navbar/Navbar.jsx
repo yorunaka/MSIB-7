@@ -1,11 +1,13 @@
 import React from 'react'
 import { useState } from 'react'
 import { NavLink } from 'react-router'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
+import logo from '/src/assets/logo.png'
 
 const Navbar = (props) => {
   const [searchValue, setSearchValue] = useState('')
   const navigate = useNavigate()
+  const location = useLocation()
 
   const handleInputChange = (value) => {
     setSearchValue(value)
@@ -20,6 +22,9 @@ const Navbar = (props) => {
     setSearchValue('')
   }
 
+  if(location.pathname === '/error'){
+    return null
+  }
 
   return (
     <div>      
@@ -41,11 +46,12 @@ const Navbar = (props) => {
           </div>
         </a>
       </div>
-      <div className="text-3xl font-semibold">
-        <h1>Central Indo News</h1>
+      <div>
+        <h1 className="text-3xl font-semibold text-center">Central Indo News</h1>
+        <p>Berita Terbaru Dimanapun, dan Kapanpun.</p>
       </div>
       <div>
-        ini logo ygy
+        <img src={logo} alt="logo" />
       </div>
     </section>
     <div>
@@ -60,21 +66,21 @@ const Navbar = (props) => {
             <NavLink
             exact='true'
             className="navbar__link px-3 py-2 hover:bg-black/10 focus:border-b-2 focus:border-b-yellow-800"
-            to="/Programming"
+            to="/programming"
             >
             Programming
             </NavLink>
             <NavLink
             exact='true'
             className="navbar__link px-3 py-2 hover:bg-black/10 focus:border-b-2 focus:border-b-yellow-800"
-            to="/Covid19"
+            to="/covid"
             >
             COVID-19
             </NavLink>
             <NavLink
             exact='true'
             className="navbar__link px-3 py-2 hover:bg-black/10 focus:border-b-2 focus:border-b-yellow-800"
-            to="/Saved"
+            to="/saved"
             >
             Saved
             </NavLink>

@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+import daisyui from './node_modules/daisyui'
 export default {
   content: [
     "./index.html",
@@ -8,7 +9,7 @@ export default {
     extend: {},
   },
   plugins: [
-   'daisyui',
+   daisyui,
   ],
 }
 
