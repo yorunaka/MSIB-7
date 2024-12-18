@@ -7,7 +7,7 @@ export default defineConfig({
     react(),
   ],
   define: {
-    "process.env": process.env,
-    VITE_APIKEY: process.env.VITE_APIKEY,
+    "meta.env": meta.env,
+    VITE_APIKEY: meta.env.VITE_APIKEY,
   }
 })
