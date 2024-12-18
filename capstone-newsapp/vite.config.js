@@ -6,4 +6,8 @@ export default defineConfig({
   plugins: [
     react(),
   ],
+  define: {
+    "process.env": process.env,
+    VITE_APIKEY: process.env.VITE_APIKEY,
+  }
 })
