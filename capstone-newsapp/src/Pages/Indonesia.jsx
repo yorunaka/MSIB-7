@@ -48,7 +48,7 @@ const Indonesia = (props) => {
         </div>
       ) : (
       <div>
-        <div className="grid grid-cols-3 p-8">
+        <div className="grid grid-cols-3 p-36 pt-4 pb-6">
         {currentNewsPage.map((article, index) => (
           <div className="grid grid-flow-row m-6 gap-2" key={index}>
             <div className="text-sm">
@@ -68,11 +68,11 @@ const Indonesia = (props) => {
                   e.preventDefault()
                   window.open(`${article.url}`, "_blank")
                 }} rel="noopener noreferrer">
-                  <div className="px-3 py-2 bg-orange-400/70 rounded-lg hover:bg-orange-400/50 text-center place-items-center justify-center items-center">
+                  <div className="h-10 flex w-fit p-4 bg-orange-400/70 rounded-lg hover:bg-orange-400/50 text-center place-items-center justify-center items-center">
                   Read More...
                   </div>
                 </a>                
-                <button className="px-3 py-2 bg-blue-400/70 rounded-lg hover:bg-blue-400/50"
+                <button className="h-10 items-center flex justify-center w-20 bg-blue-400/70 rounded-lg hover:bg-blue-400/50"
                 onClick={(e) => {
                   e.preventDefault()
                   handleDuplicate(article)}}>
@@ -88,7 +88,7 @@ const Indonesia = (props) => {
           <button
             key={number}
             onClick={() => paginate(number)}
-            className={`px-4 py-2 border join-item ${currentPage === number ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+            className={`px-4 py-2 shadow-md join-item ${currentPage === number ? 'bg-blue-500 hover:bg-blue-600 transition delay-50 text-white' : 'bg-gray-200 hover:bg-blue-400/30 transition delay-50'}`}
           >
             {number}
           </button>

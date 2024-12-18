@@ -1,21 +1,18 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
 import axios from "axios"
 import Navbar from "./components/Navbar/Navbar"
 import Index from "./Router/Index"
 import { useDispatch } from 'react-redux'
 
 function App() {
-  const [newsValue, setNewsValue] = useState('')
   const [searchValue, setSearchValue] = useState('')
   const dispatch = useDispatch()
 
   const handleNewsQuery = async (query) => {
     // console.log(query)
     if (query != null){
-      setNewsValue(query)
       setSearchValue(query)
-      getNewsData(newsValue)
+      getNewsData(query)
     }
   }
 
@@ -36,7 +33,7 @@ function App() {
   }
 
   useEffect(() => {
-    getNewsData()
+    getNewsData(searchValue)
   },[])
 
   return (

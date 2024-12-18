@@ -31,7 +31,13 @@ const Navbar = (props) => {
     {/* navbar */}
     <section className="min-w-full h-52 bg-red-100 grid grid-flow-row grid-cols-3 place-items-center items-center drop-shadow-lg ">
       <div className='flex flex-row items-center'>
-        <input type="text" name="" id="" placeholder="Search..." className="px-8 py-2" 
+        <input 
+        type="text" 
+        name="searchbox" 
+        id="searchinputform" 
+        placeholder="Search..." 
+        className="px-8 py-2" 
+        value={searchValue}
         onChange={(e) => {
           handleInputChange(e.target.value)
         }}
@@ -47,11 +53,15 @@ const Navbar = (props) => {
         </a>
       </div>
       <div>
-        <h1 className="text-3xl font-semibold text-center">Central Indo News</h1>
-        <p>Berita Terbaru Dimanapun, dan Kapanpun.</p>
+        <a href="">
+          <h1 className="text-3xl font-semibold text-center">Central Indo News</h1>
+          <p>Berita Terbaru Dimanapun, dan Kapanpun.</p>
+        </a>
       </div>
       <div>
-        <img src={logo} alt="logo" />
+        <a href="">
+          <img src={logo} alt="logo" />
+        </a>
       </div>
     </section>
     <div>
