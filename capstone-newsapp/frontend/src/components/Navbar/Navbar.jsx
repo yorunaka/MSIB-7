@@ -60,7 +60,7 @@ const Navbar = (props) => {
       </div>
       <div>
         <a href="">
-          <img src={logo} alt="logo" className='h-32 w-32'/>
+          <img src={logo} alt="logo" className='h-40 w-40'/>
         </a>
       </div>
     </section>
