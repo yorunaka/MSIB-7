@@ -54,13 +54,13 @@ const Navbar = (props) => {
       </div>
       <div>
         <a href="">
-          <h1 className="text-3xl font-semibold text-center h-32 w-32">Centralica News</h1>
+          <h1 className="text-3xl font-semibold text-center">Centralica News</h1>
           <p>Berita Terbaru Dimanapun, dan Kapanpun.</p>
         </a>
       </div>
       <div>
         <a href="">
-          <img src={logo} alt="logo" />
+          <img src={logo} alt="logo" className='h-32 w-32'/>
         </a>
       </div>
     </section>
