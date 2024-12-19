@@ -54,7 +54,7 @@ const Navbar = (props) => {
       </div>
       <div>
         <a href="">
-          <h1 className="text-3xl font-semibold text-center">Central Indo News</h1>
+          <h1 className="text-3xl font-semibold text-center">Centralica News</h1>
           <p>Berita Terbaru Dimanapun, dan Kapanpun.</p>
         </a>
       </div>
