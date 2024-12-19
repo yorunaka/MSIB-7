@@ -6,7 +6,10 @@ const app = express()
 const port = 5000
 
 const cors = require('cors')
-app.use(cors())
+app.use(cors({
+  origin: 'https://capstone-news-app-vincent-louis-fernando-3k49y54pi.vercel.app/',
+  methods: 'GET,POST',
+}))
 
 app.get('/api/news', async (req, res) => {
   // const { category = 'indonesia' } = req.query
