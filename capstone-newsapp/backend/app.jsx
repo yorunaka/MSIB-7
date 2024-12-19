@@ -7,7 +7,7 @@ const port = 5000
 
 const cors = require('cors')
 app.use(cors({
-  origin: 'https://capstone-news-app-vincent-louis-fernando-3k49y54pi.vercel.app/',
+  origin: `${import.meta.env.FRONTEND_URL}`,
   methods: 'GET,POST',
 }))
 
