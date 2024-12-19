@@ -7,7 +7,7 @@ const port = 5000
 
 const cors = require('cors')
 app.use(cors({
-  origin: `${process.env.FRONTEND_URL}`,
+  origin: process.env.FRONTEND_URL,
   methods: 'GET,POST',
 }))
 
